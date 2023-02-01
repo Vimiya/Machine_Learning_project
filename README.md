@@ -55,4 +55,4 @@ To check remote url
 ```
 git remove -v
 ```
-To setup CI/CD pipeline in heroku we need 3 information
+To setup CI/CD pipeline in heroku we need 3 informations
