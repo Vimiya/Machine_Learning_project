@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from typing import List
 
 
@@ -7,7 +7,7 @@ PROJECT_NAME="housing-predictor"
 VERSION="0.0.3"
 AUTHOR="Vimiya Sebastian"
 DESRCIPTION="This is a first FSDS Nov batch Machine Learning Project"
-PACKAGES=["housing"]
+# PACKAGES=["housing"] , instead of find_packages this can also be done
 REQUIREMENT_FILE_NAME="requirements.txt"
 HYPHEN_E_DOT = "-e ."
 
@@ -19,17 +19,18 @@ def get_requirements_list() -> List[str]:
     of libraries mentioned in requirements.txt file
     """
     with open(REQUIREMENT_FILE_NAME) as requirement_file:
-        requirement_list = requirement_file.readlines()  # readlines returns list of str
-        requirement_list = [requirement_name.replace("\n", "") for requirement_name in requirement_list]
-        if HYPHEN_E_DOT in requirement_list:
-            requirement_list.remove(HYPHEN_E_DOT)
-        return requirement_list
+        return requirement_file.readlines().remove("-e .")
+        # requirement_list = requirement_file.readlines()  # readlines returns list of str
+        # requirement_list = [requirement_name.replace("\n", "") for requirement_name in requirement_list]
+        # if HYPHEN_E_DOT in requirement_list:
+        #     requirement_list.remove(HYPHEN_E_DOT)
+        # return requirement_list
 
 setup(
     name=PROJECT_NAME,
     version=VERSION,
     author=AUTHOR,
     description=DESRCIPTION,
-    packages=PACKAGES, 
+    packages=find_packages(), 
     install_requires=get_requirements_list()
 )
