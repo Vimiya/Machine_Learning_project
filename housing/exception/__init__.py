@@ -15,7 +15,7 @@ class HousingException(Exception):
         error_detail:object of sys module
         """
         _,_,exec_tb=error_detail.exc_info()   # exc_info means exception information, it returns a tuple with 3 element:type,value and traceback 
-        line_number=exec_tb.tb_frame.f_lineno
+        line_number=exec_tb.tb_frame.f_lineno # exec_tb is a traceback object, exception info gives traceback info
         file_name=exec_tb.tb_frame.f_code.co_filename
         error_message=f"Error occured in scrip: [{file_name}] at line number: [{line_number}] error_message:[{error_message}]"
         return error_message
