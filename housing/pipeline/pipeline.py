@@ -18,8 +18,6 @@ from housing.component.model_trainer import ModelTrainer
 from housing.component.model_evaluation import ModelEvaluation
 from housing.component.model_pusher import ModelPusher
 import os, sys
-from collections import namedtuple
-from datetime import datetime
 import pandas as pd
 from housing.constant import EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME
 
